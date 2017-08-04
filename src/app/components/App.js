@@ -328,7 +328,7 @@ class App extends Component {
           Object.assign(items, {
             items: sortBy(
               item =>
-                !!item.orderIndex || item.orderIndex === 0
+                item.orderIndex || item.orderIndex === 0
                   ? item.orderIndex
                   : item.name,
               items.items,

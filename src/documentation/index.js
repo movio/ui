@@ -70,6 +70,7 @@ class Documentation extends Component {
             <Markdown
               source={this.props.markdown}
               className={styles.markdown}
+              overrideMarkdownStyle={true}
             />
           </div>
         </div>

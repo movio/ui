@@ -5,7 +5,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import json from 'highlight.js/lib/languages/json';
 import go from 'highlight.js/lib/languages/go';
 import cs from 'highlight.js/lib/languages/cs';
-import cs from 'highlight.js/lib/languages/php';
+import php from 'highlight.js/lib/languages/php';
 import java from 'highlight.js/lib/languages/java';
 
 Lowlight.registerLanguage('javascript', js);

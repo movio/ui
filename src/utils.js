@@ -44,7 +44,7 @@ const simplifyName = (name: string): string => {
 };
 
 interface Named {
-  name: string,
+  name: string;
 }
 
 function findByName<T: Named>(name: string, values: T[]): ?T {

@@ -1,20 +1,32 @@
 {
-    "organizations": {
-        "movio.cinema": {
-            "documents": [
-                {
-                    "name": "Document 1",
-                    "slug": "document-1",
-                    "rootUrl": "http://localhost/doc1/",
-                    "markdownPath": "README.md"
-                },
-                {
-                    "name": "Document 2",
-                    "slug": "document-2",
-                    "rootUrl": "http://localhost/doc2/",
-                    "markdownPath": "README.md"
-                }
-            ]
+  "organizations": {
+    "movio.cinema": {
+      "documents": [
+        {
+          "name": "Data-In API Overview",
+          "slug": "data-in-api-overview",
+          "rootUrl": "https://s3-us-west-2.amazonaws.com/api-doc-overview/data-in-api-overview/",
+          "markdownPath": "README.md"
+        },
+        {
+          "name": "Web Tracker Overview (beta)",
+          "slug": "web-tracker-overview",
+          "rootUrl": "https://s3-us-west-2.amazonaws.com/api-doc-overview/web-tracker/",
+          "markdownPath": "README.md"
+        },
+        {
+          "name": "Web Tracker Integration Guide (beta)",
+          "slug": "web-tracker-integration-guide",
+          "rootUrl": "https://s3-us-west-2.amazonaws.com/api-doc-overview/web-tracker/",
+          "markdownPath": "integration-guide.md"
+        },
+        {
+          "name": "Social Sign-on Integration Guide",
+          "slug": "social-sign-on-integration-guide",
+          "rootUrl": "https://s3-us-west-2.amazonaws.com/api-doc-overview/web-tracker/",
+          "markdownPath": "social-sign-on-guide.md"
         }
+      ]
     }
+  }
 }

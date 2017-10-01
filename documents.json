@@ -1,11 +1,20 @@
 {
     "organizations": {
         "movio.cinema": {
-            "documents": [{
-                "name": "Document 1",
-                "rootUrl": "http://localhost/doc1/",
-                "markdownPath": "README.md"
-            }]
+            "documents": [
+                {
+                    "name": "Document 1",
+                    "slug": "document-1",
+                    "rootUrl": "http://localhost/doc1/",
+                    "markdownPath": "README.md"
+                },
+                {
+                    "name": "Document 2",
+                    "slug": "document-2",
+                    "rootUrl": "http://localhost/doc2/",
+                    "markdownPath": "README.md"
+                }
+            ]
         }
     }
 }

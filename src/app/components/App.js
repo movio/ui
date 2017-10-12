@@ -158,7 +158,7 @@ class App extends Component {
       }));
       const applicationSidebarGroup = [
         {
-          name: 'Applications',
+          name: 'APIs',
           items: [
             {
               name: '',

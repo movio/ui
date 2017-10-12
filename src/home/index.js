@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 import { actions as orgActions } from 'generated/organization';
 
@@ -49,6 +50,13 @@ class Home extends Component {
   // TODO: Can I haz more orgs?
   componentDidMount() {
     this.props.actions.getOrganizations_get({ limit: 20, offset: 0 });
+  }
+
+  componentWillReceiveProps(nextProps: Props) {
+    const orgs = nextProps.organizations;
+    if (orgs.length === 1) {
+      browserHistory.push(`org/${orgs[0].key}`);
+    }
   }
 
   render() {

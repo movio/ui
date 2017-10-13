@@ -105,7 +105,6 @@ class App extends Component {
     };
   }
 
-
   // FIXME types
   static createSideBarItems(
     params: Object,

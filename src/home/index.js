@@ -52,14 +52,12 @@ class Home extends Component {
     this.props.actions.getOrganizations_get({ limit: 20, offset: 0 });
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    const orgs = nextProps.organizations;
-    if (orgs.length === 1) {
-      browserHistory.push(`org/${orgs[0].key}`);
-    }
-  }
-
   render() {
+    const { organizations } = this.props;
+    if (organizations && organizations.length === 1) {
+      browserHistory.replace(`org/${organizations[0].key}`);
+      return <div />
+    }
     return (
       <LoadingOverlay isLoaded={this.props.loaded}>
         <div className={styles.content}>
@@ -67,7 +65,7 @@ class Home extends Component {
             <H1 className={styles.h1}>Organizations</H1>
           </div>
           <div className={styles.container}>
-            <Organizations organizations={this.props.organizations} />
+            <Organizations organizations={organizations} />
           </div>
         </div>
       </LoadingOverlay>

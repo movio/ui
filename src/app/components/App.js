@@ -138,7 +138,7 @@ class App extends Component {
       ];
     } else if (params.organizationKey && !params.applicationKey) {
       const applicationsWithHref = applications.map(application => ({
-        name: application.name,
+        name: utils.titleCase(application.name),
         onClick: utils.onClickHref(
           utils.buildNavHref({
             organization: params.organizationKey,

@@ -9,6 +9,7 @@ import { actions as serviceActions } from 'generated/version';
 test('Application Home', () => {
   const params = {
     actions: serviceActions,
+    onUnload:  () => {},
     params: {
       model: undefined,
       resource: undefined,

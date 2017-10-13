@@ -56,7 +56,7 @@ class Home extends Component {
     const { organizations } = this.props;
     if (organizations && organizations.length === 1) {
       browserHistory.replace(`org/${organizations[0].key}`);
-      return <div />
+      return <div />;
     }
     return (
       <LoadingOverlay isLoaded={this.props.loaded}>

@@ -14,7 +14,7 @@ import type { Service } from 'generated/version/ServiceType';
 
 import styles from 'application/components/application.css';
 
-import { actions as serviceActions, unload_action } from 'generated/version';
+import { actions as serviceActions, unloadAction } from 'generated/version';
 
 const allActions = Object.assign({}, serviceActions);
 
@@ -33,6 +33,7 @@ type Props = {
   loaded: boolean,
   service: Service,
   importedServices: Service[],
+  onUnload: void => void,
 };
 
 export class Application extends Component {
@@ -137,7 +138,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(allActions, dispatch),
-  onUnload: () => dispatch({ type: unload_action }),
+  onUnload: () => dispatch({ type: unloadAction }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Application);

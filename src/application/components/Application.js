@@ -14,7 +14,7 @@ import type { Service } from 'generated/version/ServiceType';
 
 import styles from 'application/components/application.css';
 
-import { actions as serviceActions } from 'generated/version';
+import { actions as serviceActions, unload_action } from 'generated/version';
 
 const allActions = Object.assign({}, serviceActions);
 
@@ -48,11 +48,15 @@ export class Application extends Component {
     });
   }
 
-  render() {
-    const { service, importedServices } = this.props;
+  componentWillUnmount() {
+    this.props.onUnload();
+  }
 
-    if (!service) {
-      return <LoadingOverlay isLoaded={this.props.loaded} />;
+  render() {
+    const { service, importedServices, loaded } = this.props;
+
+    if (!service || !loaded) {
+      return <LoadingOverlay isLoaded={loaded} />;
     }
     if (this.props.params.resource) {
       // Load Operation
@@ -68,7 +72,7 @@ export class Application extends Component {
       const resource = utils.getResource(resourceType, service);
 
       return (
-        <LoadingOverlay isLoaded={this.props.loaded}>
+        <LoadingOverlay isLoaded={loaded}>
           <Operation
             service={service}
             importedServices={importedServices}
@@ -87,7 +91,7 @@ export class Application extends Component {
       if (utils.isEnum(modelName, service, importedServices)) {
         const enumModel = utils.getEnum(modelName, service, importedServices);
         return enumModel
-          ? <LoadingOverlay isLoaded={this.props.loaded}>
+          ? <LoadingOverlay isLoaded={loaded}>
               <Enum
                 enumModel={enumModel}
                 service={service}
@@ -98,7 +102,7 @@ export class Application extends Component {
       } else {
         const model = utils.getModel(modelName, service, importedServices);
         return model
-          ? <LoadingOverlay isLoaded={this.props.loaded}>
+          ? <LoadingOverlay isLoaded={loaded}>
               <Model
                 model={model}
                 service={service}
@@ -113,7 +117,7 @@ export class Application extends Component {
       const { applicationKey, organizationKey } = this.props.params;
 
       return (
-        <LoadingOverlay isLoaded={this.props.loaded}>
+        <LoadingOverlay isLoaded={loaded}>
           <ApplicationHome
             service={service}
             applicationKey={applicationKey}
@@ -133,6 +137,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(allActions, dispatch),
+  onUnload: () => dispatch({ type: unload_action }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Application);

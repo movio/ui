@@ -105,6 +105,7 @@ class App extends Component {
     };
   }
 
+
   // FIXME types
   static createSideBarItems(
     params: Object,
@@ -114,6 +115,8 @@ class App extends Component {
     organizationObj: Organization,
     applications: Application[],
   ): Item[] {
+    const defaultSideBar = [{ name: '', items: [{ name: '', items: [] }] }];
+
     if (!params.organizationKey) {
       const organizationsWithHref = organizations.map(organization => ({
         name: organization.name,
@@ -221,7 +224,7 @@ class App extends Component {
         },
       ];
     }
-    return [{ name: 'Unknown', items: [{ name: 'Unknown', items: [] }] }];
+    return defaultSideBar;
   }
 
   // FIXME types

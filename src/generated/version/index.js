@@ -18,4 +18,6 @@ const sagas = {
   getByOrgkeyAndApplicationkeyAndVersionLatestSaga: getByOrgkeyAndApplicationkeyAndVersion.takeLatestSaga,
 };
 
-export { actionTypes, actions, sagas };
+const unload_action = 'UNLOAD_APPLICATION';
+
+export { actionTypes, actions, sagas, unload_action };

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-import { onClickHref, cleanPath } from 'utils';
+import { onClickHref, cleanPath, titleCase } from 'utils';
 
 import H1 from 'components/H1';
 import Markdown from 'components/Markdown';
@@ -26,7 +26,7 @@ const ApplicationHome = ({
   return (
     <div className={styles.content}>
       <div className={styles.header}>
-        <H1 className={styles.h1}>{service.name}</H1>
+        <H1 className={styles.h1}>{titleCase(service.name)}</H1>
         <Markdown
           source={service.description ? service.description : ''}
           className={styles.description}

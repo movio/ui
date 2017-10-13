@@ -12,7 +12,7 @@ exports[`Application Home 1`] = `
         <h1
           className="h1 h1"
         >
-          apidoc generator
+          Apidoc Generator
         </h1>
         <div
           className="description container"

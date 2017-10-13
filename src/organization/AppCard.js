@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Markdown from 'components/Markdown';
-import { onClickHref } from 'utils';
+import { onClickHref, titleCase } from 'utils';
 
 import styles from 'organization/app-card.css';
 
@@ -19,7 +19,7 @@ const AppCard = (
 ) => (
   <div className={styles.container}>
     <a tabIndex="0" onClick={onClickHref(link)}>
-      <p className={styles.name}>{name}</p>
+      <p className={styles.name}>{titleCase(name)}</p>
       <div className={styles.description}>
         {description ? (
           <Markdown source={description} />

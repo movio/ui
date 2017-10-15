@@ -47,6 +47,11 @@ type Props = {
 class Home extends Component {
   props: Props;
 
+  componentWillMount() {
+    if (process.env.HOME_OVERRIDE) {
+      browserHistory.replace(process.env.HOME_OVERRIDE);
+    }
+  }
   // TODO: Can I haz more orgs?
   componentDidMount() {
     this.props.actions.getOrganizations_get({ limit: 20, offset: 0 });
@@ -54,10 +59,6 @@ class Home extends Component {
 
   render() {
     const { organizations } = this.props;
-    if (organizations && organizations.length === 1) {
-      browserHistory.replace(`org/${organizations[0].key}`);
-      return <div />;
-    }
     return (
       <LoadingOverlay isLoaded={this.props.loaded}>
         <div className={styles.content}>

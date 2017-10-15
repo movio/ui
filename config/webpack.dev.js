@@ -145,6 +145,7 @@ module.exports = env => ({
       'process.env': {
         APIDOC_HOST: '"/api"',
         TITLE: JSON.stringify(process.env.TITLE),
+        HOME_OVERRIDE: JSON.stringify(process.env.HOME_OVERRIDE),
       },
     }),
   ],

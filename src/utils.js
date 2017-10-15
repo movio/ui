@@ -180,6 +180,9 @@ const buildNavHref = ({
     )
     .join('');
 
+const titleCase = (str: string): string =>
+  str.replace(/(^[a-z])|(\s+[a-z])/g, s => s.toUpperCase());
+
 export {
   cleanPath,
   onClickHref,
@@ -198,4 +201,5 @@ export {
   getOperation,
   buildNavHref,
   getResource,
+  titleCase,
 };

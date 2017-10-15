@@ -114,6 +114,8 @@ class App extends Component {
     organizationObj: Organization,
     applications: Application[],
   ): Item[] {
+    const defaultSideBar = [{ name: '', items: [{ name: '', items: [] }] }];
+
     if (!params.organizationKey) {
       const organizationsWithHref = organizations.map(organization => ({
         name: organization.name,
@@ -136,7 +138,7 @@ class App extends Component {
       ];
     } else if (params.organizationKey && !params.applicationKey) {
       const applicationsWithHref = applications.map(application => ({
-        name: application.name,
+        name: utils.titleCase(application.name),
         onClick: utils.onClickHref(
           utils.buildNavHref({
             organization: params.organizationKey,
@@ -158,7 +160,7 @@ class App extends Component {
       }));
       const applicationSidebarGroup = [
         {
-          name: 'Applications',
+          name: 'APIs',
           items: [
             {
               name: '',
@@ -221,7 +223,7 @@ class App extends Component {
         },
       ];
     }
-    return [{ name: 'Unknown', items: [{ name: 'Unknown', items: [] }] }];
+    return defaultSideBar;
   }
 
   // FIXME types

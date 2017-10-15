@@ -138,6 +138,7 @@ const config = {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
         TITLE: JSON.stringify(process.env.TITLE),
+        HOME_OVERRIDE: JSON.stringify(process.env.HOME_OVERRIDE),
         APIDOC_HOST:
           '"' +
             (process.env.APIDOC_HOST

@@ -1,5 +1,5 @@
 // @flow
-import { actionTypes } from 'generated/version';
+import { actionTypes, unloadAction } from 'generated/version';
 
 import type { Service } from 'generated/version/ServiceType';
 
@@ -31,6 +31,12 @@ const application = (state: State = initialState, action: Action) => {
     case actionTypes.getByOrgkeyAndApplicationkeyAndVersion_doing: {
       return Object.assign(state, {
         loaded: false,
+      });
+    }
+    case unloadAction: {
+      return Object.assign(state, {
+        loaded: false,
+        service: undefined,
       });
     }
     default: {

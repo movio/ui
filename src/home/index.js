@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 import { actions as orgActions } from 'generated/organization';
 
@@ -46,12 +47,18 @@ type Props = {
 class Home extends Component {
   props: Props;
 
+  componentWillMount() {
+    if (process.env.HOME_OVERRIDE) {
+      browserHistory.replace(process.env.HOME_OVERRIDE);
+    }
+  }
   // TODO: Can I haz more orgs?
   componentDidMount() {
     this.props.actions.getOrganizations_get({ limit: 20, offset: 0 });
   }
 
   render() {
+    const { organizations } = this.props;
     return (
       <LoadingOverlay isLoaded={this.props.loaded}>
         <div className={styles.content}>
@@ -59,7 +66,7 @@ class Home extends Component {
             <H1 className={styles.h1}>Organizations</H1>
           </div>
           <div className={styles.container}>
-            <Organizations organizations={this.props.organizations} />
+            <Organizations organizations={organizations} />
           </div>
         </div>
       </LoadingOverlay>
